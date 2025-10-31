@@ -11,7 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 //Database connection with mongodb
-mongoose.connect("mongodb+srv://vanditap03:vanditap06@cluster0.5grml.mongodb.net/TrendyTrove")
+mongoose.connect(process.env.MONGO_URI)
+
 
 //API creation
 
@@ -72,7 +73,7 @@ const Product=mongoose.model("Product",{
         type:Date,
         default:Date.now,
     },
-    avilable:{
+    available:{
         type:Boolean,
         default:true,
     },
